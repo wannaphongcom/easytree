@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!python
 # -*- coding: utf-8 -*-
 #
 #  prepper.py
@@ -188,13 +188,13 @@ def prepJSON(n):
 			tempdict['children'].insert(0, output)
 		index += 1
 
-print "Preparing directory"
+print ("Preparing directory")
 # make sure the directory doesn't exist yet
 if not os.path.exists(dirname):
 	# create the directory
 	os.makedirs(dirname)
 
-print "Reading input file"
+print ("Reading input file")
 # read in the file
 # get list of sentences
 osents = []
@@ -211,7 +211,7 @@ with codecs.open(infile, 'r', 'utf8') as infile:
 
 tsents = []
 if haveTrans == True:
-	print "Reading translations"
+	print ("Reading translations")
 	with codecs.open(transfile, 'r', 'utf8') as transfile:
 		lines = filter(None, (line.rstrip() for line in transfile))
 		if not stopindex:
@@ -224,10 +224,10 @@ if haveTrans == True:
 data = {}
 if haveDict == True:
 	if getDef or getPOS:
-		print "Reading dictionary"
+		print ("Reading dictionary")
 		getDict(dictfile)
 			
-print "Processing output"
+print ("Processing output")
 # create a dictionary to hold the data
 tempdict = {}
 
@@ -251,4 +251,4 @@ while n < len(osents):
 		json.dump(tempdict, jsonfile, ensure_ascii=False)
 	n += 1
 
-print "Finished!"
+print ("Finished!")
